@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -51,6 +52,12 @@ namespace _Plugins.TopherUtils
 
 #region Other
 
+        public static void SetAllActive(this IEnumerable<Collider> colliders, bool active)
+        {
+            foreach(var c in colliders)
+                c.enabled = active;
+        }
+        
         /// <summary>Returns the Vector3 with specified values replaced.</summary>
         public static Vector3 With(this Vector3 original, float? x = null, float? y = null, float? z = null)
             => new Vector3(x ?? original.x, y ?? original.y, z ?? original.z);
