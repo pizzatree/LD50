@@ -1,10 +1,10 @@
 using _Plugins.TopherUtils;
-using Common.Scripts;
 using UnityEngine;
 
-namespace PlayerTestScene.Scripts
+namespace Common.Scripts
 {
-    public class GrabMeTest : MonoBehaviour, ICanBePickedUp
+    [RequireComponent(typeof(Rigidbody))]
+    public class Grabbable : MonoBehaviour, ICanBePickedUp
     {
         private Rigidbody  _rb;
         private Collider[] _colliders;
