@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Common.Player.Inputs;
 using TMPro;
 using UnityEngine;
@@ -9,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text _taxDollarText;
     [SerializeField] GameObject _settingsMenu;
+
+    public HashSet<Bonkable> Bonkables;
 
     PlayerInputs _inputs;
     int _visitorsSinceLastPath = 0;
@@ -22,12 +26,26 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             UpdateText();
+            Bonkables             =  new HashSet<Bonkable>();
+            Bonkable.OnSpawnEvent += HandleBonkableSpawnEvent;
             _inputs = new PlayerInputs();
             UnpauseGame();
             PlayerController.OnPause += PauseGame;
         }
         else {Destroy(gameObject);}
     }
+
+    public void HandleBonkableSpawnEvent(Bonkable bonkable, bool active)
+    {
+        if(active)
+        {
+            Bonkables.Add(bonkable);
+            return;
+        }
+
+        Bonkables.Remove(bonkable);
+    }
+    
 
     public void RegisterVisitor()
     {
@@ -65,6 +83,4 @@ public class GameManager : MonoBehaviour
     {
         _taxDollarText.text = $"${_taxDollars}";
     }
-
-   
 }

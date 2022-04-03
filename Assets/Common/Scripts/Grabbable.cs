@@ -1,3 +1,4 @@
+using System;
 using _Plugins.TopherUtils;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Common.Scripts
     [RequireComponent(typeof(Rigidbody))]
     public class Grabbable : MonoBehaviour, ICanBePickedUp
     {
+        public event Action OnGrabbed, OnThrown;
+        
         private Rigidbody  _rb;
         private Collider[] _colliders;
 
@@ -17,6 +20,8 @@ namespace Common.Scripts
 
         public ICanBePickedUp Grab(Transform grabber)
         {
+            OnGrabbed?.Invoke();
+            
             transform.parent = grabber;
             _rb.isKinematic  = true;
             _colliders.SetAllActive(false);
@@ -28,6 +33,8 @@ namespace Common.Scripts
 
         public void Throw(Vector3 direction, float magnitude)
         {
+            OnThrown?.Invoke();
+
             transform.parent = null;
             _colliders.SetAllActive(true);
         
