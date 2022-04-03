@@ -130,7 +130,7 @@ NavMeshAgent:
   m_Height: 0.1
   m_BaseOffset: 1
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &647707716491771089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 830143302644264842}
   _minSitAtBenchTime: 0
   _maxSitAtBenchTime: 0
+  _bonkValue: 3
 --- !u!1 &5470063665935892127
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,12 +14,11 @@ public abstract class Visitor : MonoBehaviour, IBonker
     [SerializeField] int _bonkValue = 1;
     VistorNavigator _navigator;
 
-    void Start()
-    {
-        GameManager.Instance.RegisterVisitor();
-    }
+    void Start() { GameManager.Instance.RegisterVisitor(); }
 
     public void Initialize() { _navigator = GetComponent<VistorNavigator>(); }
+
+    void OnDestroy() { GameManager.Instance.UnRegisterVisitor(); }
 
     void OnTriggerEnter(Collider other)
     {
