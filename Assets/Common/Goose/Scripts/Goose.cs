@@ -1,5 +1,4 @@
 using _Plugins.TopherUtils;
-using CleverCrow.Fluid.BTs.Trees;
 using Common.Player.Scripts;
 using Common.Scripts;
 using UnityEngine;
@@ -11,30 +10,30 @@ namespace Common.Goose.Scripts
     {
         [Header("Customization")] 
         [SerializeField] protected Vector2 _speedRange = new Vector2(1f, 3f);
-        [SerializeField] protected Vector2 _eatingDelayRange = new Vector2(2f, 5f);
+        [SerializeField] protected Vector2 _eatingDelayRange = new Vector2(2f,   5f);
+        [SerializeField] private   Vector2   _pooBufferRange   = new Vector2(1.5f, 3f);
         
         [Header("Dependencies")] 
         [SerializeField] private GameObject _pooPrefab;
         [SerializeField] protected GameObject _bat;
         [SerializeField] protected bool       _usesBat;
         [SerializeField] private   Transform  _pooPoint;
-        
-        [Header("Behavior Tree")] 
-        [SerializeField] protected BehaviorTree _bt;
 
-        protected bool Stunned() => _held || _eating;
-        
         private   Grabbable       _grabbable;
         private   GooseCollisions _gooseCollisions;
         private   Transform       _modelTransform;
-        private   Animator        _animator;
-        private   Rigidbody       _rb;
+        protected Animator        _animator;
+        protected   Rigidbody       _rb;
         protected Motor           _motor;
 
-        protected                  float _speed;
-        [SerializeField] protected bool  _held, _eating;
+        [Header("Other")]
+        [SerializeField] protected bool _held, _eating;
 
-        private void Start()
+        protected float _speed;
+
+        protected bool IsStunned()     => _held || _eating;
+        
+        protected virtual void Start()
         {
             _modelTransform = transform.Find("Model");
 
@@ -46,11 +45,9 @@ namespace Common.Goose.Scripts
 
             _grabbable.OnThrown  += _gooseCollisions.ClapThemGeese;
             _grabbable.OnThrown  += HandleThrown;
-            _grabbable.OnGrabbed += HandleGrabbed;            
+            _grabbable.OnGrabbed += HandleGrabbed;
             
-            _bt = CreateBehaviorTree();
-            
-            InvokeRepeating(nameof(Poo), 1f, 5f);
+            Invoke(nameof(Poo), _pooBufferRange.RandomValue());
         }
 
         private void OnDisable()
@@ -59,11 +56,19 @@ namespace Common.Goose.Scripts
             _grabbable.OnThrown  -= HandleThrown;
             _grabbable.OnGrabbed -= HandleGrabbed;           
         }
-        protected virtual BehaviorTree CreateBehaviorTree()
+        
+        protected virtual void Update()
         {
-            Debug.LogWarning($"Give {name} a behaviour tree.");
-            return null;
+
         }
+
+        private void HandleThrown()
+        {
+            _animator.SetTrigger("Thrown");
+            _held = false;
+        }
+
+        private void HandleGrabbed() => _held = true;
 
         protected void Eat()
         {
@@ -80,29 +85,15 @@ namespace Common.Goose.Scripts
                 Invoke(nameof(Eat), _eatingDelayRange.RandomValue());
         }
 
-        private void Update()
+        protected async void Poo()
         {
-            _bt?.Tick();
-        }
-
-        private void HandleThrown()
-        {
-            _held = false;
-        }
-
-        private void HandleGrabbed()
-        {
-            _held = true;
-        }
-
-        private void Poo()
-        {
+            // if over sidewalk
+            
+            _animator.SetTrigger("Poopoo");
             Instantiate(_pooPrefab, _pooPoint.position, transform.rotation);
+            Invoke(nameof(Poo), _pooBufferRange.RandomValue());
         }
         
-        private void OnValidate()
-        {
-            _bat.SetActive(_usesBat);
-        }
+        private void OnValidate() => _bat.SetActive(_usesBat);
     }
 }

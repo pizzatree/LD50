@@ -48,12 +48,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedRange: {x: 1, y: 3}
+  _eatingDelayRange: {x: 2, y: 5}
+  _pooBufferRange: {x: 1.5, y: 3}
   _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
     type: 3}
   _bat: {fileID: 1659717907093782045}
   _usesBat: 0
   _pooPoint: {fileID: 6142240814188427718}
-  _target: {fileID: 0}
+  _held: 0
+  _eating: 0
 --- !u!114 &2061025700937703931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7245569227404964844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.366, y: -0.306, z: 0}
+  m_LocalPosition: {x: 0.079, y: -0.213, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

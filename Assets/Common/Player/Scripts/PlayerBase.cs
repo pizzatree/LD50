@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Common.Player.Scripts
 {
-    public class PlayerBase : MonoBehaviour
+    public class PlayerBase : Bonkable
     {
         [SerializeField] private float _maxSpeed = 5f;
 
@@ -20,8 +20,10 @@ namespace Common.Player.Scripts
 
         private CancellationTokenSource _cts;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+            
             _animator   = GetComponentInChildren<Animator>();
             _interactor = GetComponentInChildren<PlayerInteractor>(true);
             _grabber    = GetComponentInChildren<PlayerGrabber>(true);
@@ -41,7 +43,7 @@ namespace Common.Player.Scripts
             _controller.OnAction2 += _interactor.FindInteraction;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
             _cts.Cancel();
 
@@ -53,6 +55,11 @@ namespace Common.Player.Scripts
         private void Update()
         {
             _motor.Move(_controller.GetDirection());
+        }
+
+        public override void OnBonk(IBonker bonker)
+        {
+            // TODO: Finish me
         }
     }
 }

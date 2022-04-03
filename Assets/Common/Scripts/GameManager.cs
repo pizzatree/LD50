@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] TMP_Text _taxDollarText;
+
+    public HashSet<Bonkable> Bonkables;
 
     int _visitorsSinceLastPath = 0;
     float _visitorsTillNextPath = 1;
@@ -19,9 +22,23 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             UpdateText();
+            Bonkables             =  new HashSet<Bonkable>();
+            Bonkable.OnSpawnEvent += HandleBonkableSpawnEvent;
         }
         else {Destroy(gameObject);}
     }
+
+    public void HandleBonkableSpawnEvent(Bonkable bonkable, bool active)
+    {
+        if(active)
+        {
+            Bonkables.Add(bonkable);
+            return;
+        }
+
+        Bonkables.Remove(bonkable);
+    }
+    
 
     public void RegisterVisitor()
     {

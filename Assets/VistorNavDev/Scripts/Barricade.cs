@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Barricade : MonoBehaviour, IBonkable, ICanBePickedUp
+public class Barricade : Bonkable, ICanBePickedUp
 {
     [SerializeField] int _hp = 20;
     [SerializeField] int _destroyTime = 5;
@@ -31,7 +31,7 @@ public class Barricade : MonoBehaviour, IBonkable, ICanBePickedUp
         if(other.gameObject.TryGetComponent<IBonker>(out bonker))
             OnBonk(bonker);
     }
-    public void OnBonk(IBonker bonker)
+    public override void OnBonk(IBonker bonker)
     {
         _hp -= bonker.GetBonkValue();
         if (_hp <= 0)

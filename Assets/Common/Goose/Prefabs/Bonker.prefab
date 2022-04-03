@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange: {x: 1, y: 3}
   _eatingDelayRange: {x: 2, y: 5}
+  _pooBufferRange: {x: 1.5, y: 3}
   _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
     type: 3}
   _bat: {fileID: 191821725541548749}
