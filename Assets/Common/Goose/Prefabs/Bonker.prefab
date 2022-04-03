@@ -99,11 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c2a01f2487499194bf1026bfd97b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedRange: {x: 1, y: 3}
+  _eatingDelayRange: {x: 2, y: 5}
+  _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
+    type: 3}
   _bat: {fileID: 191821725541548749}
   _usesBat: 1
   _pooPoint: {fileID: 4655705007149925654}
-  _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
-    type: 3}
+  _held: 0
+  _eating: 0
 --- !u!4 &4655705007149925654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6142240814188427718, guid: 131a651e77342bb45bd723d496a19143,

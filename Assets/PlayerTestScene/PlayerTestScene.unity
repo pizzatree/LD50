@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 474581252754065723, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1268048519}
     - target: {fileID: 474581252754065724, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_Name
@@ -580,7 +585,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780169, y: 1}
+    m_SensorSize: {x: 1.7775471, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -926,6 +931,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonker
       objectReference: {fileID: 0}
+    - target: {fileID: 8112567596475862635, guid: d3aa52c108753c04e81b01cc984d2b08,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1268048519}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3aa52c108753c04e81b01cc984d2b08, type: 3}
 --- !u!1001 &7017693357981408859
@@ -935,10 +945,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470747968, guid: 6e662c78b00bf12468772c751ffc40ce, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 470747970, guid: 6e662c78b00bf12468772c751ffc40ce, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1a210b1f48489f345b6c615f4aafb770, type: 2}
+    - target: {fileID: 1990451437, guid: 6e662c78b00bf12468772c751ffc40ce, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1990451439, guid: 6e662c78b00bf12468772c751ffc40ce, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

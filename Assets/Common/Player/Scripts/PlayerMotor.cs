@@ -3,6 +3,13 @@ using UnityEngine;
 
 namespace Common.Player.Scripts
 {
+    public class GooseMotor : Motor
+    {
+        public GooseMotor(Rigidbody rb, Transform modelTransform, Animator animator, float maxSpeed) : base(rb, modelTransform, animator, maxSpeed)
+        {
+        }
+    }
+    
     public class PlayerMotor : Motor
     {
         private const float SPRINT_SCALE    = 3f;
