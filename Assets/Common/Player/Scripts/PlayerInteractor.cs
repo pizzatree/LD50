@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Poo;
 using Common.Scripts;
 using UnityEngine;
 
@@ -33,13 +34,17 @@ namespace Common.Player.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
-            if(!other.TryGetComponent<IInteractable>(out var interactable))
+            var interactable = other.gameObject.GetComponentInParent<IInteractable>();
+            if(interactable == null)
                 return;
-        
+
             _collider.enabled = false;
 
             if(interactable is Poop)
+            {
                 _animator.SetTrigger(Clean);
+                Destroy(other.gameObject);
+            }        
         }
     }
 }

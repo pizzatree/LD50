@@ -35,7 +35,11 @@ namespace Common.Player.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
-            if(!other.gameObject.TryGetComponent<ICanBePickedUp>(out var entity))
+            if(_entityInHands != null)
+                return;
+
+            var entity = other.gameObject.GetComponentInParent<ICanBePickedUp>();
+            if(entity == null)
                 return;
 
             _entityInHands = entity.Grab(_handsPoint);

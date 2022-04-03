@@ -39,6 +39,9 @@ namespace _Plugins.TopherUtils
         public static bool CollidedWith<T>(this Collision2D collision, out T potentialObject)
             => collision.collider.TryGetComponent(out potentialObject);
 
+        public static bool WasHitFromBottom(this Collision collision)
+            => collision.contacts[0].normal.y > 0.5f;
+        
         public static bool WasHitFromBottom(this Collision2D collision)
             => collision.contacts[0].normal.y > 0.5f;
 
