@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dc91db205aee8ec43b29f8f9fd289b4b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Komika Display Wide
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 66e443038096a004b971fc61233fb9f5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

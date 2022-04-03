@@ -1,18 +1,24 @@
+
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(VistorNavigator))]
-public abstract class Visitor : MonoBehaviour
+public abstract class Visitor : MonoBehaviour, IBonker
 {
     [SerializeField] GameObject _virtualCamera;
     [SerializeField] int _minSitAtBenchTime;
     [SerializeField] int _maxSitAtBenchTime;
+    [SerializeField] int _bonkValue = 1;
     VistorNavigator _navigator;
 
+    void Start() { GameManager.Instance.RegisterVisitor(); }
+
     public void Initialize() { _navigator = GetComponent<VistorNavigator>(); }
+
+    void OnDestroy() { GameManager.Instance.UnRegisterVisitor(); }
 
     void OnTriggerEnter(Collider other)
     {
@@ -42,4 +48,5 @@ public abstract class Visitor : MonoBehaviour
         _navigator.ResetMoveSpeed();
         parkBench.Occupied = false;
     }
+    public int GetBonkValue() { return _bonkValue; }
 }

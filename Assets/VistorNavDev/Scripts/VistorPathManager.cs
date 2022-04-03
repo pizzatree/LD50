@@ -12,6 +12,8 @@ public class VistorPathManager : MonoBehaviour
 {
     public static VistorPathManager Instance;
 
+    public float VisitorSpawnFrequency = 5;
+
     [SerializeField] Visitor[] _vistorPrefabs;
     [SerializeField] VistorPath[] _paths;
     [SerializeField] float _pathSpawnFrequency;
@@ -25,7 +27,7 @@ public class VistorPathManager : MonoBehaviour
         if (!Instance)
         {
             Instance = this;
-            StartCoroutine(SpawnPaths());
+            AddPath();
             StartCoroutine(SpawnVisitors());
             
         }
@@ -48,6 +50,10 @@ public class VistorPathManager : MonoBehaviour
         _visitorDestinations.Add(_paths[_pathIndex].EndPoint);
         _paths[_pathIndex].Initialize();
         _pathIndex++;
+        for (int i = 0; i < _pathIndex; i++)
+        {
+            _paths[i].BuildNavMesh();
+        }
     }
 
     public Transform GetRandomDestination()
@@ -57,27 +63,13 @@ public class VistorPathManager : MonoBehaviour
         return _visitorDestinations[index];
     }
 
-    IEnumerator SpawnPaths()
-    {
-        while (_pathIndex < _paths.Length)
-        {
-            for(int i = 0; i < 3; i++)
-                AddPath();
-            for (int i = 0; i < _pathIndex; i++)
-            {
-                _paths[i].BuildNavMesh();
-            }
-            yield return new WaitForSeconds(_pathSpawnFrequency);
-        }
-    }
-    
     IEnumerator SpawnVisitors()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(VisitorSpawnFrequency);
         while (true)
         {
             SpawnRandomVisitor();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(VisitorSpawnFrequency);
         }
     }
 }
