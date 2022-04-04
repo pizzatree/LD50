@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 474581252754065724, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659717907093782045, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
@@ -180,7 +180,7 @@ MonoBehaviour:
   _onPoop:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -194,7 +194,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -211,7 +211,7 @@ MonoBehaviour:
   _onThrown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -228,7 +228,7 @@ MonoBehaviour:
   _onGrabbed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -249,6 +249,36 @@ MonoBehaviour:
   _pooPoint: {fileID: 4655705007149925654}
   _held: 0
   _eating: 0
+  _pooping: 0
+  _onBonk:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a3e96f32bfa8b13428842ce1bad1e74f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2138103853109405702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 580381967616070870, guid: 131a651e77342bb45bd723d496a19143,
+    type: 3}
+  m_PrefabInstance: {fileID: 1558804518051167440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edadd8c82b43904d8094d235bde78e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4655705007149925654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6142240814188427718, guid: 131a651e77342bb45bd723d496a19143,

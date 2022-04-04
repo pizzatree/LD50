@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using _Plugins.TopherUtils;
 using Common.Player.Scripts;
 using Common.Scripts;
@@ -34,14 +36,16 @@ namespace Common.Goose.Scripts
         protected Rigidbody       _rb;
         protected Motor           _motor;
 
-        [Header("Other")] [SerializeField] protected bool _held, _eating;
+        [Header("Other")] [SerializeField] protected bool _held, _eating, _pooping;
 
-        protected float _speed;
+        private   CancellationTokenSource _cts;
+        protected float                   _speed;
 
-        protected bool IsStunned() => _held || _eating;
+        protected bool IsStunned() => _held || _eating || _pooping;
 
         protected virtual void Start()
         {
+            _cts            = new CancellationTokenSource();
             _modelTransform = transform.Find("Model");
 
             _animator        = GetComponentInChildren<Animator>();
@@ -62,6 +66,8 @@ namespace Common.Goose.Scripts
             _grabbable.OnThrown  -= _gooseCollisions.ClapThemGeese;
             _grabbable.OnThrown  -= HandleThrown;
             _grabbable.OnGrabbed -= HandleGrabbed;
+            
+            _cts.Cancel();
         }
 
         protected virtual void Update()
@@ -98,13 +104,20 @@ namespace Common.Goose.Scripts
                 Invoke(nameof(Eat), _eatingDelayRange.RandomValue());
         }
 
-        protected void Poo()
+        protected async void Poo()
         {
+            _pooping = true;
             _onPoop?.Invoke();
             // if over sidewalk
 
             _animator.SetTrigger("Poopoo");
             Instantiate(_pooPrefab, _pooPoint.position, transform.rotation);
+
+            await Task.Delay(400);
+            if(_cts.IsCancellationRequested)
+                return;
+            
+            _pooping = false;
             Invoke(nameof(Poo), _pooBufferRange.RandomValue());
         }
 

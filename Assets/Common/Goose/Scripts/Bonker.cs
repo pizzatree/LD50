@@ -3,11 +3,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using _Plugins.TopherUtils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Common.Goose.Scripts
 {
     public class Bonker : Goose
     {
+        [SerializeField] private UnityEvent _onBonk;
+
         private BonkBox   _bonkBox;
         private Bonkable  _target;
         private Transform _targetTransform;
@@ -24,12 +27,13 @@ namespace Common.Goose.Scripts
         protected override void OnDisable()
         {
             base.OnDisable();
-            
+
             _bonkBox.OnBonk -= HandleBonk;
         }
 
         private void HandleBonk()
         {
+            _onBonk?.Invoke();
             FindNewTarget();
         }
 
@@ -39,18 +43,17 @@ namespace Common.Goose.Scripts
 
             if(IsStunned())
                 return;
-            
+
             if(!_target)
             {
                 FindNewTarget();
                 return;
             }
-            
+
             HandleMovement();
-            
+
             if(IsWithinRange())
                 Bonk();
-                
         }
 
         private bool IsWithinRange() => Vector3.Distance(transform.position, _targetTransform.position) <= 3f;
@@ -61,10 +64,9 @@ namespace Common.Goose.Scripts
             var rot     = Quaternion.LookRotation(_targetTransform.position - transform.position);
             _rb.rotation = Quaternion.RotateTowards(_rb.rotation,
                                                     rot,
-                                                    65f * Time.deltaTime );
-            
-            _rb.MovePosition(nextPos);
+                                                    65f * Time.deltaTime);
 
+            _rb.MovePosition(nextPos);
         }
 
         private void Bonk()
@@ -85,7 +87,7 @@ namespace Common.Goose.Scripts
 
             if(!_target)
                 return;
-            
+
             _targetTransform = _target.transform;
         }
     }
