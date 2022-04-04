@@ -1309,12 +1309,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340582837}
   m_CullTransparentMesh: 1
---- !u!4 &361581138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1311158837457918584, guid: 6e662c78b00bf12468772c751ffc40ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 7017693357981408859}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &490650097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +1978,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9336917, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3797,20 +3791,26 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -750, y: 55343.676}
+  m_AnchoredPosition: {x: -100, y: 3509.6348}
   m_SizeDelta: {x: 0, y: 475}
   m_Pivot: {x: 0, y: 1}
+--- !u!4 &1592323421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4647294970253525597, guid: 6e662c78b00bf12468772c751ffc40ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 7017693357981408859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1671252739
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 361581138}
+    m_TransformParent: {fileID: 1592323421}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ef79341bae1956045adca3fa683d1603,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef79341bae1956045adca3fa683d1603,
         type: 3}
@@ -3820,7 +3820,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ef79341bae1956045adca3fa683d1603,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef79341bae1956045adca3fa683d1603,
         type: 3}
