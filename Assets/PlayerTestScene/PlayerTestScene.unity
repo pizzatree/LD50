@@ -975,18 +975,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1694615886 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 580381967616070870, guid: 131a651e77342bb45bd723d496a19143,
-    type: 3}
-  m_PrefabInstance: {fileID: 244387400}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edadd8c82b43904d8094d235bde78e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1715254268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,31 +1265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonker
       objectReference: {fileID: 0}
-    - target: {fileID: 1384840744119956972, guid: d3aa52c108753c04e81b01cc984d2b08,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8112567596475862635, guid: d3aa52c108753c04e81b01cc984d2b08,
-        type: 3}
-      propertyPath: _onPoop.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1694615886}
-    - target: {fileID: 8112567596475862635, guid: d3aa52c108753c04e81b01cc984d2b08,
-        type: 3}
-      propertyPath: _onPoop.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1694615886}
-    - target: {fileID: 8112567596475862635, guid: d3aa52c108753c04e81b01cc984d2b08,
-        type: 3}
-      propertyPath: _onThrown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1694615886}
-    - target: {fileID: 8112567596475862635, guid: d3aa52c108753c04e81b01cc984d2b08,
-        type: 3}
-      propertyPath: _onGrabbed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1694615886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3aa52c108753c04e81b01cc984d2b08, type: 3}
 --- !u!1001 &7017693357981408859
