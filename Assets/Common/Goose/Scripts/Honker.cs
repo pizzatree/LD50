@@ -11,7 +11,9 @@ namespace Common.Goose.Scripts
         protected override void Start()
         {
             base.Start();
-            _targetDestination = FindNewDestination();
+            FindNewDestination();
+            
+            InvokeRepeating(nameof(FindNewDestination), 5f, 5f);
         }
 
         protected override void HandleThrown()
@@ -33,7 +35,7 @@ namespace Common.Goose.Scripts
         private void HandleMovement()
         {
             if(ReachedDestination())
-                _targetDestination = FindNewDestination();
+                FindNewDestination();
 
             var dir      = _targetDestination - transform.position;
             var nextMove = new Vector2(dir.x, dir.z).normalized;
@@ -42,10 +44,10 @@ namespace Common.Goose.Scripts
         
         private bool ReachedDestination() => Vector3.Distance(transform.position, _targetDestination) <= 3f;
 
-        private Vector3 FindNewDestination()
+        private void FindNewDestination()
         {
             _speed = _speedRange.RandomValue();
-            return new Vector3(Random.Range(-10f, 10f), 0f, (Random.Range(-10f, 10f)));
+            _targetDestination = new Vector3(Random.Range(-50f, 50f), 0f, (Random.Range(-50f, 50f)));
         }
     }
 }

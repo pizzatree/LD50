@@ -25,6 +25,12 @@ public abstract class Visitor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        ParkBench parkBench = other.GetComponent<ParkBench>();
+        if(parkBench){InteractWithParkBench(parkBench);}
+    }
+    
+    void OnCollisionEnter(Collision other)
+    {
         if (other.gameObject.CompareTag("Turd"))
         {
             OnPooStepping?.Invoke(this);
@@ -33,12 +39,8 @@ public abstract class Visitor : MonoBehaviour
             VirtualCameraManager.Instance.PanToVisitor(_virtualCamera);
             return;
         }
-        ParkBench parkBench = other.GetComponent<ParkBench>();
-        if(parkBench){InteractWithParkBench(parkBench);}
-    }
-    
-    void OnCollisionEnter(Collision other)
-    {
+        
+        
         var bonkable = other.collider.GetComponentInParent<Bonkable>();
         
         if(bonkable != null)
