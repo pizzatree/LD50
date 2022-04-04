@@ -60,15 +60,13 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         }
         else if(Vector3.Distance(transform.position, _target.position) < _interactDistance){PerformStaffAction();}
         else if (Vector3.Distance(_detector.transform.position, _target.position) > _detector.Range) { _target = null;}
-        else
-        {
-           MoveToTarget();
-        }
+        else { MoveToTarget(); }
     }
 
     private void OnDestroy()
     {
         OnDestroyed?.Invoke();
+        GameManager.Instance.UnRegisterStaff(this);
     }
 
     void OnCollisionEnter(Collision other)
@@ -81,15 +79,7 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         }
     }
 
-    protected override void OnDisable()
-    {
-        _cts.Cancel();
-    }
-
-    void OnDestroy()
-    {
-        GameManager.Instance.UnRegisterStaff(this);
-    }
+    protected override void OnDisable() { _cts.Cancel(); }
 
     public override void OnBonk(int bonkValue, Vector3 bonkDirection)
     {
