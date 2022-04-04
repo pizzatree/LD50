@@ -1,6 +1,8 @@
+using System;
 using System.Threading;
 using Common.Player.Scripts;
 using Common.Scripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,6 +13,8 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     [SerializeField] Vector2 _speedRange = new Vector2(1f, 3f);
     [SerializeField] protected RangedDetector _detector;
     [SerializeField] float _interactDistance = 1;
+    [SerializeField] int _hp = 1;
+    [SerializeField] int _staffCost = 1;
     
     protected PlayerGrabber _grabber;
     protected PlayerInteractor _interactor;
@@ -40,7 +44,7 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         _interactor = GetComponentInChildren<PlayerInteractor>();
         _interactor.Init(_cts.Token, _animator);
         _detector = Instantiate(_detector);
-        
+        GameManager.Instance.RegisterStaff(this);
     }
 
     protected virtual void Update()
@@ -75,10 +79,18 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         _cts.Cancel();
     }
 
+    void OnDestroy()
+    {
+        GameManager.Instance.UnRegisterStaff(this);
+    }
+
     public override void OnBonk(int bonkValue, Vector3 bonkDirection)
     {
-        throw new System.NotImplementedException();
+        _hp -= bonkValue;
+        if (_hp <= 0) { Destroy(gameObject); }
     }
+    
+    public int StaffCost { get => _staffCost; }
 
     public ICanBePickedUp Grab(Transform grabber)
     {
@@ -91,7 +103,6 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     }
     public void OnThrown()
     {
-        Debug.Log("Throw");
         _isGrabbed = false;
         _isThrown = true;
     }
