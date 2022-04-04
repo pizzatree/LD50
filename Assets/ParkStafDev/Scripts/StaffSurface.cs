@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class StaffSurface : MonoBehaviour, IStaffSurface
+public class StaffSurface : MonoBehaviour
 {
     
 }

@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(NavMeshSurface))]
-public class VistorPath : MonoBehaviour, IStaffSurface
+public class VistorPath : MonoBehaviour
 {
     [SerializeField] Transform _endPoint;
 

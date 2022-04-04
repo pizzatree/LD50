@@ -11,6 +11,7 @@ public class StaffPusher : ParkStaff
     
     protected override void Update()
     {
+        if (_isGrabbed) { return;}
         if (_grabber.HasEntityInHands())
         {
             PerformStaffAction();
