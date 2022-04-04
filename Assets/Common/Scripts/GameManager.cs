@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text _taxDollarText;
     [SerializeField] GameObject _settingsMenu;
     [SerializeField] float _deductionTime = 10;
+    [SerializeField] float _difficultyCurve = 1.25f;
 
     public HashSet<Bonkable> Bonkables;
 
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
         VistorPathManager.Instance.VisitorSpawnFrequency = 4 - Mathf.Log10(_visitorsLeft * 2);
         if (_visitorsLeft - _visitorsSinceLastPath > _visitorsTillNextPath)
         {
-            _visitorsTillNextPath *= 1.25f;
+            _visitorsTillNextPath *= _difficultyCurve;
             VistorPathManager.Instance.AddPath();
             _visitorsSinceLastPath = _visitorsLeft;
         }

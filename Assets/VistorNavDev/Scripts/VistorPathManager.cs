@@ -46,6 +46,7 @@ public class VistorPathManager : MonoBehaviour
 
     public void AddPath()
     {
+        if (_pathIndex >= _paths.Length) { return;}
         _paths[_pathIndex].gameObject.SetActive(true);
         _visitorDestinations.Add(_paths[_pathIndex].EndPoint);
         _paths[_pathIndex].Initialize();
