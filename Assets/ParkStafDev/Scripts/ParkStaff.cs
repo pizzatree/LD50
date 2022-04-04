@@ -4,8 +4,10 @@ using Common.Scripts;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Grabbable))]
 public abstract class ParkStaff : Bonkable, ICanBePickedUp
 {
+    [SerializeField] Grabbable _grabbable;
     [SerializeField] Vector2 _speedRange = new Vector2(1f, 3f);
     [SerializeField] protected RangedDetector _detector;
     [SerializeField] float _interactDistance = 1;
@@ -13,6 +15,7 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     protected PlayerGrabber _grabber;
     protected PlayerInteractor _interactor;
     protected Motor _motor;
+    protected bool _isGrabbed = false;
     
     bool _isThrown = false;
     Transform _target = null;
@@ -24,6 +27,8 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     protected override void Start()
     {
         base.Start();
+        _grabbable = GetComponent<Grabbable>();
+        _grabbable.OnThrown += OnThrown;
         _rb = GetComponent<Rigidbody>();
         _modelTransform = transform.Find("Model");
         _animator = GetComponentInChildren<Animator>();
@@ -40,6 +45,7 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
 
     protected virtual void Update()
     {
+        if (_isGrabbed) { return;}
         if (!_target) { _target = null;}
         if (_target == null)
         {
@@ -56,8 +62,9 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<IStaffSurface>() != null && _isThrown)
+        if (other.gameObject.GetComponent<StaffSurface>() != null && _isThrown)
         {
+            Debug.Log("StaffSurface");
             _isThrown = false;
             _detector.transform.position = transform.position;
         }
@@ -75,12 +82,18 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
 
     public ICanBePickedUp Grab(Transform grabber)
     {
-        throw new System.NotImplementedException();
+        _isGrabbed = true;
+        return _grabbable.Grab(grabber);
     }
     public void Throw(Vector3 direction, float magnitude)
     {
-        _isThrown = true;
         throw new System.NotImplementedException();
+    }
+    public void OnThrown()
+    {
+        Debug.Log("Throw");
+        _isGrabbed = false;
+        _isThrown = true;
     }
 
     protected void MoveToTarget()
