@@ -20,6 +20,8 @@ namespace Common.Player.Scripts
             _motor    = motor;
         }
 
+        public bool HasEntityInHands() { return _entityInHands != null;}
+
         public void HandleGrabThrow()
         {
             if(_entityInHands == null)
