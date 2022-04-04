@@ -56,6 +56,9 @@ namespace Common.Player.Scripts
 
         private void HandleDestroyedHandEntity()
         {
+            if(_entityInHands == null)
+                return;
+            
             _entityInHands.OnDestroyed -= HandleDestroyedHandEntity;
             _entityInHands             =  null;
         }
