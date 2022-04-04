@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
-  m_Name: Purchasing
+  m_Name: Loss
   m_EditorClassIdentifier: 
-  _mixer: {fileID: -5561066697983311033, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
+  _mixer: {fileID: 3964757319405416084, guid: 9b9bf46560fe89f458141510910109bd, type: 2}
   _clips:
-  - {fileID: 8300000, guid: ec5075a60baf37c46847a9d8525ba2a4, type: 3}
-  - {fileID: 8300000, guid: 1168b783d4399a24aadf6bf7b7171497, type: 3}
-  - {fileID: 8300000, guid: 712e42dfff7f4aa4589e8b736c7e809a, type: 3}
-  _volume: {x: 1, y: 1}
+  - {fileID: 8300000, guid: 5d34a1b66647b8e45be3abf495506baa, type: 3}
+  _volume: {x: 1, y: 0.75}
   _pitch: {x: 1, y: 1}

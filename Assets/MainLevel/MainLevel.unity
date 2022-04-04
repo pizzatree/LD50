@@ -463,6 +463,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 21182267}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3024c0b505b7bce4380030151cddb514,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _taxDollarText: {fileID: 1593631775}
   _settingsMenu: {fileID: 1379964412}
 --- !u!4 &1245060504
