@@ -3,11 +3,14 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(VistorNavigator))]
 public abstract class Visitor : MonoBehaviour
 {
+    public static event Action<Visitor> OnPooStepping;
+    
     [SerializeField] GameObject _virtualCamera;
     [SerializeField] int _minSitAtBenchTime;
     [SerializeField] int _maxSitAtBenchTime;
@@ -24,6 +27,8 @@ public abstract class Visitor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Turd"))
         {
+            OnPooStepping?.Invoke(this);
+            
             _navigator.MoveSpeed = 0;
             VirtualCameraManager.Instance.PanToVisitor(_virtualCamera);
             return;

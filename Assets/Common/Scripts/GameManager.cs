@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using Common.Player.Inputs;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField] private UnityEvent _ohNo;
 
     [SerializeField] TMP_Text _taxDollarText;
     [SerializeField] GameObject _settingsMenu;
@@ -31,8 +34,14 @@ public class GameManager : MonoBehaviour
             _inputs = new PlayerInputs();
             UnpauseGame();
             PlayerController.OnPause += PauseGame;
+            Visitor.OnPooStepping    += HandleGameOver;
         }
         else {Destroy(gameObject);}
+    }
+
+    private void HandleGameOver(Visitor obj)
+    {
+        _ohNo?.Invoke();
     }
 
     public void HandleBonkableSpawnEvent(Bonkable bonkable, bool active)
