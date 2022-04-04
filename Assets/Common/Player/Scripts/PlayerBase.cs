@@ -1,6 +1,8 @@
 using System.Threading;
+using System.Threading.Tasks;
 using Common.Player.Inputs;
 using Common.Scripts;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Common.Player.Scripts
@@ -57,9 +59,27 @@ namespace Common.Player.Scripts
             _motor.Move(_controller.GetDirection());
         }
 
-        public override void OnBonk(IBonker bonker)
+        private bool _isBonked;
+        public override async void OnBonk(int bonkValue, Vector3 bonkDirection)
         {
-            // TODO: Finish me
+            if(_isBonked)
+                return;
+
+            _controller.OnSprint -= _motor.Sprint;
+
+            var force = bonkDirection * 3f + Vector3.up * 2f;
+            _rb.AddForce(force * 3f, ForceMode.Impulse);
+            
+            _isBonked = true;
+            _motor.ScaleSpeed(0.05f);
+            await Task.Delay(3000);
+            if(_cts.IsCancellationRequested)
+                return;
+            
+            _motor.ScaleSpeed(1f);
+            _isBonked = false;
+            
+            _controller.OnSprint += _motor.Sprint;
         }
     }
 }

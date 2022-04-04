@@ -6,7 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(VistorNavigator))]
-public abstract class Visitor : MonoBehaviour, IBonker
+public abstract class Visitor : MonoBehaviour
 {
     [SerializeField] GameObject _virtualCamera;
     [SerializeField] int _minSitAtBenchTime;
@@ -30,6 +30,14 @@ public abstract class Visitor : MonoBehaviour, IBonker
         }
         ParkBench parkBench = other.GetComponent<ParkBench>();
         if(parkBench){InteractWithParkBench(parkBench);}
+    }
+    
+    void OnCollisionEnter(Collision other)
+    {
+        var bonkable = other.collider.GetComponentInParent<Bonkable>();
+        
+        if(bonkable != null)
+            bonkable.OnBonk(_bonkValue, (other.transform.position - transform.position).normalized);
     }
     
     public Transform ReturnPoint { set => _navigator.ReturnPoint = value; }
