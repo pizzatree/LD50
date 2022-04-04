@@ -8,13 +8,15 @@ namespace Common.Goose.Scripts
     [RequireComponent(typeof(Grabbable))]
     public class Goose : MonoBehaviour
     {
-        [Header("Customization")] 
-        [SerializeField] protected Vector2 _speedRange = new Vector2(1f, 3f);
+        [Header("Customization")] [SerializeField]
+        protected Vector2 _speedRange = new Vector2(1f, 3f);
+
         [SerializeField] protected Vector2 _eatingDelayRange = new Vector2(2f,   5f);
-        [SerializeField] private   Vector2   _pooBufferRange   = new Vector2(1.5f, 3f);
-        
-        [Header("Dependencies")] 
-        [SerializeField] private GameObject _pooPrefab;
+        [SerializeField] private   Vector2 _pooBufferRange   = new Vector2(1.5f, 3f);
+
+        [Header("Dependencies")] [SerializeField]
+        private GameObject _pooPrefab;
+
         [SerializeField] protected GameObject _bat;
         [SerializeField] protected bool       _usesBat;
         [SerializeField] private   Transform  _pooPoint;
@@ -23,16 +25,15 @@ namespace Common.Goose.Scripts
         private   GooseCollisions _gooseCollisions;
         private   Transform       _modelTransform;
         protected Animator        _animator;
-        protected   Rigidbody       _rb;
+        protected Rigidbody       _rb;
         protected Motor           _motor;
 
-        [Header("Other")]
-        [SerializeField] protected bool _held, _eating;
+        [Header("Other")] [SerializeField] protected bool _held, _eating;
 
         protected float _speed;
 
-        protected bool IsStunned()     => _held || _eating;
-        
+        protected bool IsStunned() => _held || _eating;
+
         protected virtual void Start()
         {
             _modelTransform = transform.Find("Model");
@@ -46,20 +47,19 @@ namespace Common.Goose.Scripts
             _grabbable.OnThrown  += _gooseCollisions.ClapThemGeese;
             _grabbable.OnThrown  += HandleThrown;
             _grabbable.OnGrabbed += HandleGrabbed;
-            
+
             Invoke(nameof(Poo), _pooBufferRange.RandomValue());
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             _grabbable.OnThrown  -= _gooseCollisions.ClapThemGeese;
             _grabbable.OnThrown  -= HandleThrown;
-            _grabbable.OnGrabbed -= HandleGrabbed;           
+            _grabbable.OnGrabbed -= HandleGrabbed;
         }
-        
+
         protected virtual void Update()
         {
-
         }
 
         private void HandleThrown()
@@ -76,24 +76,24 @@ namespace Common.Goose.Scripts
             // if _curBread is null
             // eating = false
             // return
-            
+
             // _curBread.Eat()
             // if curBread is null
             _eating = false;
-            
+
             if(_eating)
                 Invoke(nameof(Eat), _eatingDelayRange.RandomValue());
         }
 
-        protected async void Poo()
+        protected void Poo()
         {
             // if over sidewalk
-            
+
             _animator.SetTrigger("Poopoo");
             Instantiate(_pooPrefab, _pooPoint.position, transform.rotation);
             Invoke(nameof(Poo), _pooBufferRange.RandomValue());
         }
-        
+
         private void OnValidate() => _bat.SetActive(_usesBat);
     }
 }

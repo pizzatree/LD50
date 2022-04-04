@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     public void UnpauseGame()
     {
         _inputs.Gameplay.Enable();
-        _settingsMenu.SetActive(false);
+        _settingsMenu?.SetActive(false);
         Time.timeScale = 1;
     }
 
