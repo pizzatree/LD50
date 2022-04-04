@@ -67,10 +67,85 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonker
       objectReference: {fileID: 0}
+    - target: {fileID: 474581252754065724, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1659717907093782045, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.068157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.0000002028024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.00000020464273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.34305987
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.4442532e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.4214785e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432880724408371250, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.22105442
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478654892792525705, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478654892792525705, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823235915042402358, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.3354595e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823235915042402358, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.1933775e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453600029025282732, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.20305274
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850447624509883285, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 76.8718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850447624509883285, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -2.5372631e-14
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 474581252754065723, guid: 131a651e77342bb45bd723d496a19143, type: 3}
@@ -102,6 +177,71 @@ MonoBehaviour:
   _speedRange: {x: 1, y: 3}
   _eatingDelayRange: {x: 2, y: 5}
   _pooBufferRange: {x: 1.5, y: 3}
+  _onPoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: ec72f03edd34f5f4c8e0ed1c691129c5,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onThrown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
     type: 3}
   _bat: {fileID: 191821725541548749}

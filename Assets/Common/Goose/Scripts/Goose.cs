@@ -2,6 +2,7 @@ using _Plugins.TopherUtils;
 using Common.Player.Scripts;
 using Common.Scripts;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Common.Goose.Scripts
 {
@@ -11,9 +12,14 @@ namespace Common.Goose.Scripts
         [Header("Customization")] [SerializeField]
         protected Vector2 _speedRange = new Vector2(1f, 3f);
 
-        [SerializeField] protected Vector2 _eatingDelayRange = new Vector2(2f,   5f);
-        [SerializeField] private   Vector2 _pooBufferRange   = new Vector2(1.5f, 3f);
-
+        [SerializeField] protected Vector2    _eatingDelayRange = new Vector2(2f,   5f);
+        [SerializeField] private   Vector2    _pooBufferRange   = new Vector2(1.5f, 3f);
+        
+        [Header("Events")]
+        [SerializeField] private   UnityEvent _onPoop;
+        [SerializeField] private   UnityEvent _onThrown;
+        [SerializeField] private   UnityEvent _onGrabbed;
+        
         [Header("Dependencies")] [SerializeField]
         private GameObject _pooPrefab;
 
@@ -64,11 +70,18 @@ namespace Common.Goose.Scripts
 
         private void HandleThrown()
         {
+            _onThrown?.Invoke();
+            
             _animator.SetTrigger("Thrown");
             _held = false;
         }
 
-        private void HandleGrabbed() => _held = true;
+        private void HandleGrabbed()
+        {
+            _onGrabbed?.Invoke();
+            
+            _held = true;
+        }
 
         protected void Eat()
         {
@@ -87,6 +100,7 @@ namespace Common.Goose.Scripts
 
         protected void Poo()
         {
+            _onPoop?.Invoke();
             // if over sidewalk
 
             _animator.SetTrigger("Poopoo");
