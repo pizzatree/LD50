@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 474581252754065724, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659717907093782045, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
@@ -117,6 +117,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.22105442
       objectReference: {fileID: 0}
+    - target: {fileID: 5520283834561004560, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0c1fa3639424764ea5f1eeb4f45cae6, type: 2}
+    - target: {fileID: 5520283834561004560, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7fe31234847de54fbe0bd7938517114, type: 2}
+    - target: {fileID: 5520283834561004560, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0c1fa3639424764ea5f1eeb4f45cae6, type: 2}
     - target: {fileID: 6478654892792525705, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,19 +182,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1558804518051167440}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &-4591033122010032745
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384840744119956972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3343921510442154392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +213,7 @@ MonoBehaviour:
   _onPoop:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -225,7 +227,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
@@ -242,12 +244,12 @@ MonoBehaviour:
   _onThrown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+          m_ObjectArgument: {fileID: 11400000, guid: 78eac2e1ab358a94c9de0f80970f76f8,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
             Assembly-CSharp-firstpass
@@ -259,12 +261,12 @@ MonoBehaviour:
   _onGrabbed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2138103853109405702}
         m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
         m_MethodName: PlayEventOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+          m_ObjectArgument: {fileID: 11400000, guid: a015f657e175e6c45b06e2d5c2faaddd,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
             Assembly-CSharp-firstpass
@@ -280,6 +282,36 @@ MonoBehaviour:
   _pooPoint: {fileID: 4655705007149925654}
   _held: 0
   _eating: 0
+  _pooping: 0
+  _onBonk:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a3e96f32bfa8b13428842ce1bad1e74f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2138103853109405702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 580381967616070870, guid: 131a651e77342bb45bd723d496a19143,
+    type: 3}
+  m_PrefabInstance: {fileID: 1558804518051167440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edadd8c82b43904d8094d235bde78e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4655705007149925654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6142240814188427718, guid: 131a651e77342bb45bd723d496a19143,

@@ -14,6 +14,12 @@ namespace Common.Goose.Scripts
             _targetDestination = FindNewDestination();
         }
 
+        protected override void HandleThrown()
+        {
+            base.HandleThrown();
+            FindNewDestination();
+        }
+
         protected override void Update()
         {
             base.Update();

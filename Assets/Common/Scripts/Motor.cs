@@ -46,6 +46,18 @@ namespace Common.Scripts
             _rb.MovePosition(_rb.position + new Vector3(direction.x, 0f, direction.y) * (Speed * Time.deltaTime));
         }
 
+        public bool MoveTowards(Vector3 position, float distance = 1.5f)
+        {
+            var dist = position - _rb.position;
+
+            if(dist.magnitude <= distance)
+                return true;
+            
+            dist.Normalize();
+            Move(new Vector2(dist.x, dist.z));
+            return false;
+        }
+
         public void ScaleSpeed(float newScale = 1f) => _moveScale = newScale;
 
         protected virtual void SetMoving(bool moving) 

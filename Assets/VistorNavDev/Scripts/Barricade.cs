@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Barricade : Bonkable, ICanBePickedUp
 {
+    public event Action OnDestroyed;
+    
     [SerializeField] int _hp = 20;
     [SerializeField] int _destroyTime = 5;
     [SerializeField] Grabbable _grabbable;
@@ -52,6 +54,13 @@ public class Barricade : Bonkable, ICanBePickedUp
         yield return new WaitForSeconds(_destroyTime);
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
+    }
+
+
     public ICanBePickedUp Grab(Transform grabber)
     {
         _grabber = grabber;

@@ -9,6 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(Grabbable))]
 public abstract class ParkStaff : Bonkable, ICanBePickedUp
 {
+    public event Action OnDestroyed;
+
     [SerializeField] Grabbable _grabbable;
     [SerializeField] Vector2 _speedRange = new Vector2(1f, 3f);
     [SerializeField] protected RangedDetector _detector;
@@ -64,6 +66,11 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         }
     }
 
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
+    }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<StaffSurface>() != null && _isThrown)
@@ -91,7 +98,6 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     }
     
     public int StaffCost { get => _staffCost; }
-
     public ICanBePickedUp Grab(Transform grabber)
     {
         _isGrabbed = true;

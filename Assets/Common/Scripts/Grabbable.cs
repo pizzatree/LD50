@@ -7,6 +7,7 @@ namespace Common.Scripts
     [RequireComponent(typeof(Rigidbody))]
     public class Grabbable : MonoBehaviour, ICanBePickedUp
     {
+        public event Action OnDestroyed;
         public event Action OnGrabbed, OnThrown;
         
         private Rigidbody  _rb;
@@ -17,6 +18,7 @@ namespace Common.Scripts
             _rb        = GetComponent<Rigidbody>();
             _colliders = GetComponentsInChildren<Collider>();
         }
+
 
         public ICanBePickedUp Grab(Transform grabber)
         {
@@ -40,6 +42,11 @@ namespace Common.Scripts
         
             _rb.isKinematic = false;
             _rb.AddForce((Vector3.up + direction) * magnitude, ForceMode.Impulse);
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke();
         }
     }
 }

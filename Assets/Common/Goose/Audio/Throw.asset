@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
-  m_Name: Step 2
+  m_Name: Throw
   m_EditorClassIdentifier: 
   _mixer: {fileID: -6547656997032372538, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
   _clips:
-  - {fileID: 8300000, guid: cb19fa4da9787fe4f946619e53ae54e9, type: 3}
-  - {fileID: 8300000, guid: 65dbae86693f6374ab901e06d7080768, type: 3}
-  - {fileID: 8300000, guid: 0b2c298b39cb34f48b8a89e522a07032, type: 3}
-  - {fileID: 8300000, guid: 0d51e6835ebdea2438000546dc7253e2, type: 3}
-  _volume: {x: 0.25, y: 0.385}
+  - {fileID: 8300000, guid: 7ccb4943fe49ad44aa5af4e41d3b307b, type: 3}
+  - {fileID: 8300000, guid: 548fc1d2b66f1da4cad7071cc4be4125, type: 3}
+  - {fileID: 8300000, guid: 558144599130ad74a92f177adccb1526, type: 3}
+  - {fileID: 8300000, guid: dc3c3553abf5d6b43aa8dbc7063b5ac7, type: 3}
+  _volume: {x: 1, y: 1}
   _pitch: {x: 1, y: 1}

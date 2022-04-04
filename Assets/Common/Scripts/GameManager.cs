@@ -5,11 +5,14 @@ using Common.Player.Inputs;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField] private UnityEvent _ohNo;
 
     [SerializeField] TMP_Text _taxDollarText;
     [SerializeField] GameObject _settingsMenu;
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
             UnpauseGame();
             PlayerController.OnPause += PauseGame;
             StartCoroutine(DeductDues());
+            Visitor.OnPooStepping    += HandleGameOver;
         }
         else {Destroy(gameObject);}
     }
@@ -47,6 +51,11 @@ public class GameManager : MonoBehaviour
             _taxDollars = value;
             UpdateText();
         }
+    }
+
+    private void HandleGameOver(Visitor obj)
+    {
+        _ohNo?.Invoke();
     }
 
     public void HandleBonkableSpawnEvent(Bonkable bonkable, bool active)
