@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
+  m_Name: Bonk
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: -6547656997032372538, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
+  _clips:
+  - {fileID: 8300000, guid: b31cc8178dd21324f965b56b68108e7d, type: 3}
+  _volume: {x: 0.4, y: 0.6}
+  _pitch: {x: 0.85, y: 1}

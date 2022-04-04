@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3759869438297116078}
   - component: {fileID: 5379339619114529865}
   - component: {fileID: 2607337007177847797}
+  - component: {fileID: -9121611587281252148}
   m_Layer: 7
   m_Name: Poo
   m_TagString: Untagged
@@ -76,6 +77,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.56742096, y: 0.32888496, z: 0.58790046}
   m_Center: {x: -0.0071820915, y: 0.1643484, z: 0.0176422}
+--- !u!114 &-9121611587281252148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759869438297116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff341817688476ab8376d508b95698b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!1001 &3759869436734764276
 PrefabInstance:
   m_ObjectHideFlags: 0

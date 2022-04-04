@@ -1,11 +1,17 @@
+using System;
 using System.Linq;
+using System.Threading.Tasks;
 using _Plugins.TopherUtils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Common.Goose.Scripts
 {
-    public class Bonker : Goose, IBonker
+    public class Bonker : Goose
     {
+        [SerializeField] private UnityEvent _onBonk;
+
+        private BonkBox   _bonkBox;
         private Bonkable  _target;
         private Transform _targetTransform;
 
@@ -13,6 +19,21 @@ namespace Common.Goose.Scripts
         {
             base.Start();
 
+            _bonkBox        =  GetComponentInChildren<BonkBox>();
+            _bonkBox.OnBonk += HandleBonk;
+            FindNewTarget();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            _bonkBox.OnBonk -= HandleBonk;
+        }
+
+        private void HandleBonk()
+        {
+            _onBonk?.Invoke();
             FindNewTarget();
         }
 
@@ -22,42 +43,41 @@ namespace Common.Goose.Scripts
 
             if(IsStunned())
                 return;
-            
+
             if(!_target)
             {
                 FindNewTarget();
                 return;
             }
-            
+
             HandleMovement();
-            
-            if(IsWithinRange() && Bonk())
-                FindNewTarget();
+
+            if(IsWithinRange())
+                Bonk();
         }
 
         private bool IsWithinRange() => Vector3.Distance(transform.position, _targetTransform.position) <= 3f;
 
         private void HandleMovement()
         {
-            var nextPos = _rb.position    + transform.forward * (_speed * Time.deltaTime);
-            _rb.rotation = Quaternion.RotateTowards(_rb.rotation, 
-                                                    Quaternion.LookRotation(Vector3.MoveTowards(_rb.position, _targetTransform.position, 1f)), 
-                                                    90f * Time.deltaTime );
+            var nextPos = _rb.position + transform.forward * (_speed * Time.deltaTime);
+            var rot     = Quaternion.LookRotation(_targetTransform.position - transform.position);
+            _rb.rotation = Quaternion.RotateTowards(_rb.rotation,
+                                                    rot,
+                                                    65f * Time.deltaTime);
+
             _rb.MovePosition(nextPos);
-            // var dir      = transform.forward * .2f + (_targetTransform.position - transform.position) * .8f;
-            // var nextMove = new Vector2(dir.x, dir.z).normalized;
-            // _motor.Move(nextMove * _speed);
         }
 
-        private bool Bonk()
+        private void Bonk()
         {
-            _animator.SetTrigger("Bonk");
-            return false;
+            if(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Bonk")
+                _animator.SetTrigger("Bonk");
         }
 
         private void FindNewTarget()
         {
-            _speed = _speedRange.RandomValue() * 1.25f;
+            _speed = _speedRange.RandomValue();
 
             _target = GameManager.Instance
                                  .Bonkables
@@ -67,13 +87,8 @@ namespace Common.Goose.Scripts
 
             if(!_target)
                 return;
-            
-            _targetTransform = _target.transform;
-        }
 
-        public int GetBonkValue()
-        {
-            return 9001;
+            _targetTransform = _target.transform;
         }
     }
 }

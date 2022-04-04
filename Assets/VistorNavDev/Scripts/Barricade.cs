@@ -24,16 +24,10 @@ public class Barricade : Bonkable, ICanBePickedUp
                 children.Add(transform.GetChild(i).GetChild(j));
         }
     }
-
-    void OnCollisionEnter(Collision other)
+    
+    public override void OnBonk(int bonkValue, Vector3 dir)
     {
-        IBonker bonker;
-        if(other.gameObject.TryGetComponent<IBonker>(out bonker))
-            OnBonk(bonker);
-    }
-    public override void OnBonk(IBonker bonker)
-    {
-        _hp -= bonker.GetBonkValue();
+        _hp -= bonkValue;
         if (_hp <= 0)
         {
             for (int i = 0; i < children.Count; i++)
@@ -46,7 +40,7 @@ public class Barricade : Bonkable, ICanBePickedUp
                 float y = Random.Range(0f, 360f);
                 float z = Random.Range(0f, 360f);
 
-                Vector3 velocity = new Vector3(x, y, z).normalized * bonker.GetBonkValue();
+                Vector3 velocity = new Vector3(x, y, z).normalized * bonkValue;
                 rb.AddForce(velocity, ForceMode.Impulse);
             }
             StartCoroutine(DestroyAfterTime());

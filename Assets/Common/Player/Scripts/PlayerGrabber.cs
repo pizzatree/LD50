@@ -20,6 +20,8 @@ namespace Common.Player.Scripts
             _motor    = motor;
         }
 
+        public bool HasEntityInHands() { return _entityInHands != null;}
+
         public void HandleGrabThrow()
         {
             if(_entityInHands == null)
@@ -29,6 +31,7 @@ namespace Common.Player.Scripts
             }
 
             _animator.SetTrigger(Throw);
+            Debug.Log("Player throw");
             _entityInHands?.Throw(transform.forward, Mathf.Max(3f, Mathf.Min(10f, 2f * _motor.Speed)));
             _entityInHands = null;
         }

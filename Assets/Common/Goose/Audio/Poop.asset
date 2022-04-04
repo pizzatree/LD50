@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
+  m_Name: Poop
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: -6547656997032372538, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
+  _clips:
+  - {fileID: 8300000, guid: b1d668f3b100da44792f4fc29e7bccbd, type: 3}
+  - {fileID: 8300000, guid: d49c3134876660749afa8023df61ed4d, type: 3}
+  - {fileID: 8300000, guid: 6679fe6afbe1d124a960f409ee2455aa, type: 3}
+  - {fileID: 8300000, guid: c30251b0a637bd3408ab11a247df22c1, type: 3}
+  - {fileID: 8300000, guid: 1ec94b442b73b2b47b5141633adba02c, type: 3}
+  - {fileID: 8300000, guid: be07f34d4b16a6545b991d465a20cf74, type: 3}
+  _volume: {x: 0.75, y: 0.85}
+  _pitch: {x: 0.8, y: 1.2}

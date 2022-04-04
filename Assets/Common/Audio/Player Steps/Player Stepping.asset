@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
+  m_Name: Player Stepping
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: -6547656997032372538, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
+  _clips:
+  - {fileID: 8300000, guid: 193b87ad6d5b34c41ae879c0b5270caf, type: 3}
+  - {fileID: 8300000, guid: 09f6b1fe64ff0f54abe3339f659ab496, type: 3}
+  - {fileID: 8300000, guid: 4d51ffb570297b54d8cc875ef95871ec, type: 3}
+  - {fileID: 8300000, guid: 68d5b9482302ac94aa42f6019a66c384, type: 3}
+  - {fileID: 8300000, guid: 3e703ce494fe86546bc6f9a20eb04f87, type: 3}
+  - {fileID: 8300000, guid: 6efa086dcc6455649a72919a24808924, type: 3}
+  - {fileID: 8300000, guid: 9d1f1d6bcfbeb1049a925f55b81d5e22, type: 3}
+  - {fileID: 8300000, guid: 9e16665e06f0169458dbcac956fa87cf, type: 3}
+  _volume: {x: 0.38, y: 0.43}
+  _pitch: {x: 1, y: 1}

@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 474581252754065722, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5213938
       objectReference: {fileID: 0}
     - target: {fileID: 474581252754065722, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.428
       objectReference: {fileID: 0}
     - target: {fileID: 474581252754065722, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.1722422
       objectReference: {fileID: 0}
     - target: {fileID: 474581252754065722, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
@@ -67,10 +67,90 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonker
       objectReference: {fileID: 0}
+    - target: {fileID: 474581252754065724, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1659717907093782045, guid: 131a651e77342bb45bd723d496a19143,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566440652300024587, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.068157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.0000002028024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589993022711374229, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.00000020464273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.34305987
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.4442532e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553834506443951082, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.4214785e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432880724408371250, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.22105442
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478654892792525705, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478654892792525705, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823235915042402358, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.3354595e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823235915042402358, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.1933775e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453600029025282732, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.20305274
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850447624509883285, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 76.8718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850447624509883285, guid: 131a651e77342bb45bd723d496a19143,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -2.5372631e-14
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 474581252754065723, guid: 131a651e77342bb45bd723d496a19143, type: 3}
@@ -87,6 +167,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1558804518051167440}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &-4591033122010032745
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384840744119956972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3343921510442154392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384840744119956972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff341817688476ab8376d508b95698b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!114 &8112567596475862635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +208,71 @@ MonoBehaviour:
   _speedRange: {x: 1, y: 3}
   _eatingDelayRange: {x: 2, y: 5}
   _pooBufferRange: {x: 1.5, y: 3}
+  _onPoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: ec72f03edd34f5f4c8e0ed1c691129c5,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onThrown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 78eac2e1ab358a94c9de0f80970f76f8,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a015f657e175e6c45b06e2d5c2faaddd,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
     type: 3}
   _bat: {fileID: 191821725541548749}
@@ -109,6 +280,36 @@ MonoBehaviour:
   _pooPoint: {fileID: 4655705007149925654}
   _held: 0
   _eating: 0
+  _pooping: 0
+  _onBonk:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138103853109405702}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a3e96f32bfa8b13428842ce1bad1e74f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2138103853109405702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 580381967616070870, guid: 131a651e77342bb45bd723d496a19143,
+    type: 3}
+  m_PrefabInstance: {fileID: 1558804518051167440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edadd8c82b43904d8094d235bde78e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4655705007149925654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6142240814188427718, guid: 131a651e77342bb45bd723d496a19143,
