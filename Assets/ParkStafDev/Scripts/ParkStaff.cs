@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Common.Player.Scripts;
 using Common.Scripts;
@@ -7,6 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Grabbable))]
 public abstract class ParkStaff : Bonkable, ICanBePickedUp
 {
+    public event Action OnDestroyed;
+
     [SerializeField] Grabbable _grabbable;
     [SerializeField] Vector2 _speedRange = new Vector2(1f, 3f);
     [SerializeField] protected RangedDetector _detector;
@@ -60,6 +63,11 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
         }
     }
 
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
+    }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<StaffSurface>() != null && _isThrown)
@@ -79,7 +87,7 @@ public abstract class ParkStaff : Bonkable, ICanBePickedUp
     {
         throw new System.NotImplementedException();
     }
-
+    
     public ICanBePickedUp Grab(Transform grabber)
     {
         _isGrabbed = true;

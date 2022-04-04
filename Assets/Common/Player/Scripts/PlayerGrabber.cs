@@ -1,3 +1,4 @@
+using System;
 using Common.Scripts;
 using UnityEngine;
 
@@ -20,8 +21,7 @@ namespace Common.Player.Scripts
             _motor    = motor;
         }
 
-        public bool HasEntityInHands() { return _entityInHands != null;}
-
+        public        bool HasEntityInHands() { return _entityInHands != null;}
         public void HandleGrabThrow()
         {
             if(_entityInHands == null)
@@ -31,7 +31,6 @@ namespace Common.Player.Scripts
             }
 
             _animator.SetTrigger(Throw);
-            Debug.Log("Player throw");
             _entityInHands?.Throw(transform.forward, Mathf.Max(3f, Mathf.Min(10f, 2f * _motor.Speed)));
             _entityInHands = null;
         }
@@ -45,7 +44,20 @@ namespace Common.Player.Scripts
             if(entity == null)
                 return;
 
-            _entityInHands = entity.Grab(_handsPoint);
+            _entityInHands             =  entity.Grab(_handsPoint);
+            _entityInHands.OnDestroyed += HandleDestroyedHandEntity;
+        }
+
+        private void OnDisable()
+        {
+            if(_entityInHands != null)
+                _entityInHands.OnDestroyed -= HandleDestroyedHandEntity;
+        }
+
+        private void HandleDestroyedHandEntity()
+        {
+            _entityInHands.OnDestroyed -= HandleDestroyedHandEntity;
+            _entityInHands             =  null;
         }
     }
 }
