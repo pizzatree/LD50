@@ -44,7 +44,11 @@ namespace Common.Player.Scripts
             {
                 _animator.SetTrigger(Clean);
                 Destroy(other.gameObject);
-            }        
+            }     
+            else if(interactable is Shed)
+            {
+                PurchaseWindow.OpenWindow();
+            }
         }
     }
 }

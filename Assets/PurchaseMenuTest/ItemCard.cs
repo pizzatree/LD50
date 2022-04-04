@@ -5,10 +5,15 @@ using UnityEngine;
 public class ItemCard : MonoBehaviour
 {
     [SerializeField] private GameObject _displayItem;
+    [SerializeField] private GameObject _objectToBuy;
     private GameObject _previewObject;
 
     void Start() {
         _previewObject = GameObject.Find("PreviewObject");
+    }
+
+    public void PurchaseItem() {
+        Instantiate(_objectToBuy);
     }
 
     public void ChangeDisplay() {
