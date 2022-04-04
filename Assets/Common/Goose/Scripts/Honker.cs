@@ -1,5 +1,6 @@
 using _Plugins.TopherUtils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Common.Goose.Scripts
 {

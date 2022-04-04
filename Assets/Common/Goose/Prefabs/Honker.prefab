@@ -50,6 +50,71 @@ MonoBehaviour:
   _speedRange: {x: 1, y: 3}
   _eatingDelayRange: {x: 2, y: 5}
   _pooBufferRange: {x: 1.5, y: 3}
+  _onPoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580381967616070870}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 580381967616070870}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: ec72f03edd34f5f4c8e0ed1c691129c5,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onThrown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580381967616070870}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580381967616070870}
+        m_TargetAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioReaction, Assembly-CSharp-firstpass
+        m_MethodName: PlayEventOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a996038efb8c9774da7ecf1f1ee8f956,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: _Plugins.TopherUtils.Audio.AudioEvent,
+            Assembly-CSharp-firstpass
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _pooPrefab: {fileID: 3759869438297116079, guid: b27ed2b4e1285394283cfa1b50277662,
     type: 3}
   _bat: {fileID: 1659717907093782045}
@@ -252,6 +317,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3059747, y: 1.1345595, z: 1.276986}
   m_Center: {x: 0.011156321, y: 0.0618667, z: 0.000000059604645}
+--- !u!1 &8420424046823520159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6453644642855135401}
+  - component: {fileID: 580381967616070870}
+  m_Layer: 7
+  m_Name: AudioReaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6453644642855135401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420424046823520159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 80137216991624169}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580381967616070870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420424046823520159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edadd8c82b43904d8094d235bde78e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &474581253344959490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,17 +591,17 @@ PrefabInstance:
     - target: {fileID: -2871311070681256908, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.3430593
+      value: 0.34306493
       objectReference: {fileID: 0}
     - target: {fileID: -2871311070681256908, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -6.9899316e-17
+      value: -3.8087786e-17
       objectReference: {fileID: 0}
     - target: {fileID: -2871311070681256908, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -6.3611437e-15
+      value: -6.3611357e-15
       objectReference: {fileID: 0}
     - target: {fileID: -2168891556452682066, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
@@ -532,12 +641,12 @@ PrefabInstance:
     - target: {fileID: -1557003401758826601, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 76.871765
+      value: 76.87175
       objectReference: {fileID: 0}
     - target: {fileID: -1557003401758826601, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.8427754e-14
+      value: -2.8336888e-14
       objectReference: {fileID: 0}
     - target: {fileID: -1557003401758826601, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
@@ -597,32 +706,32 @@ PrefabInstance:
     - target: {fileID: 3982372294591266199, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -31.068165
+      value: -31.068172
       objectReference: {fileID: 0}
     - target: {fileID: 3982372294591266199, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.0000060237426
+      value: -0.0000063091156
       objectReference: {fileID: 0}
     - target: {fileID: 3982372294591266199, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.0000100417865
+      value: 0.000010517513
       objectReference: {fileID: 0}
     - target: {fileID: 4153573921379948520, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.34305933
+      value: 0.3430593
       objectReference: {fileID: 0}
     - target: {fileID: 4153573921379948520, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.7064874e-14
+      value: -3.284427e-14
       objectReference: {fileID: 0}
     - target: {fileID: 4153573921379948520, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.648039e-14
+      value: -3.2326345e-14
       objectReference: {fileID: 0}
     - target: {fileID: 4163065801834642324, guid: 5a2c9ab866026544cb9f4b3654551415,
         type: 3}
@@ -763,6 +872,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3766045733414042955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745175259445109075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4f71a320999b246bd795ce4f981718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: {fileID: 11400000, guid: 886f500ca68286940be686fddcc4d905, type: 2}
+  _step2: {fileID: 11400000, guid: 7dcb4b947630b304ba2269d5394a0d80, type: 2}
+  _audioReaction: {fileID: 580381967616070870}
 --- !u!1 &1659717907093782045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1269607752586650143, guid: 5a2c9ab866026544cb9f4b3654551415,

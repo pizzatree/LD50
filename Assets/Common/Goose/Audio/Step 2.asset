@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a83ca151945f59408570d7efbe35747, type: 3}
+  m_Name: Step 2
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: -6547656997032372538, guid: ec4b7446ebafea949bd5d59ee7b3ebd0, type: 2}
+  _clips:
+  - {fileID: 8300000, guid: cb19fa4da9787fe4f946619e53ae54e9, type: 3}
+  - {fileID: 8300000, guid: 65dbae86693f6374ab901e06d7080768, type: 3}
+  - {fileID: 8300000, guid: 0b2c298b39cb34f48b8a89e522a07032, type: 3}
+  - {fileID: 8300000, guid: 0d51e6835ebdea2438000546dc7253e2, type: 3}
+  _volume: {x: 0.5, y: 0.65}
+  _pitch: {x: 1, y: 1}
