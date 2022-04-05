@@ -18,7 +18,7 @@ public class GooseSpawner : MonoBehaviour
 
         InvokeRepeating(nameof(SpawnHonkers), _spawnRateHonkers, _spawnRateHonkers);
         InvokeRepeating(nameof(SpawnBonkers), _spawnRateBonkers, _spawnRateBonkers);
-        //InvokeRepeating(nameof(SpawnImposters), _spawnRateImposters, _spawnRateImposters);
+        InvokeRepeating(nameof(SpawnImposters), _spawnRateImposters, _spawnRateImposters);
     }
     
     private void Spawn(GameObject prefab)
