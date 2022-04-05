@@ -15,8 +15,14 @@ public class VistorPathManager : MonoBehaviour
     public float VisitorSpawnFrequency = 5;
 
     [SerializeField] Visitor[] _vistorPrefabs;
-    [SerializeField] VistorPath[] _paths;
+    [SerializeField] VistorPath[] _paths1;
+    [SerializeField] VistorPath[] _paths2;
+    [SerializeField] VistorPath[] _paths3;
+    [SerializeField] VistorPath[] _paths4;
+    [SerializeField] VistorPath[] _paths5;
+    [SerializeField] VistorPath[] _paths6;
     [SerializeField] float _pathSpawnFrequency;
+    VistorPath[][] _paths;
     
     List<Transform> _validParkEntrances = new List<Transform>();
     List<Transform> _visitorDestinations = new List<Transform>();
@@ -26,6 +32,7 @@ public class VistorPathManager : MonoBehaviour
     {
         if (!Instance)
         {
+            _paths = new[] {_paths1, _paths2, _paths3, _paths4, _paths5, _paths6};
             Instance = this;
             AddPath();
             StartCoroutine(SpawnVisitors());
@@ -33,6 +40,8 @@ public class VistorPathManager : MonoBehaviour
         }
         else { Destroy(gameObject); }
     }
+    
+    void OnDestroy() { if (Instance == this) { Instance = null; } }
 
     public void RegisterEntrance(Transform entrance) {_validParkEntrances.Add(entrance); }
 
@@ -47,13 +56,17 @@ public class VistorPathManager : MonoBehaviour
     public void AddPath()
     {
         if (_pathIndex >= _paths.Length) { return;}
-        _paths[_pathIndex].gameObject.SetActive(true);
-        _visitorDestinations.Add(_paths[_pathIndex].EndPoint);
-        _paths[_pathIndex].Initialize();
-        _pathIndex++;
-        for (int i = 0; i < _pathIndex; i++)
+        for (int i = 0; i < _paths[_pathIndex].Length; i++)
         {
-            _paths[i].BuildNavMesh();
+            _paths[_pathIndex][i].gameObject.SetActive(true);
+            _visitorDestinations.Add(_paths[_pathIndex][i].EndPoint);
+            _paths[_pathIndex][i].Initialize();
+        }
+        _pathIndex++;
+        for (int j = 0; j < _pathIndex; j++)
+        {
+            for (int i = 0; i < _paths[_pathIndex].Length; i++)
+                _paths[j][i].BuildNavMesh();
         }
     }
 

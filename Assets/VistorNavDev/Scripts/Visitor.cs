@@ -21,7 +21,7 @@ public abstract class Visitor : MonoBehaviour
 
     public void Initialize() { _navigator = GetComponent<VistorNavigator>(); }
 
-    void OnDestroy() { GameManager.Instance.UnRegisterVisitor(); }
+    void OnDestroy() { GameManager.Instance?.UnRegisterVisitor(); }
 
     void OnTriggerEnter(Collider other)
     {

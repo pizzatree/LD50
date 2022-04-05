@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,11 +23,12 @@ public class GameManager : MonoBehaviour
     public HashSet<Bonkable> Bonkables;
 
     PlayerInputs _inputs;
-    int _visitorsSinceLastPath = 0;
+    int _visitorsSinceLastPath = 10;
     float _visitorsTillNextPath = 1;
     int _taxDollars = 0;
     int _visitorsLeft = 0;
     int _staffCost = 0;
+    bool _gameOver = false;
 
     void Awake()
     {
@@ -44,19 +46,25 @@ public class GameManager : MonoBehaviour
         }
         else {Destroy(gameObject);}
     }
-    
-    int TaxDollars
+
+    void OnDestroy() {Debug.Log("Game Manager Destroyed"); if (Instance == this) { Instance = null; } }
+
+    public int TaxDollars
     {
         set
         {
             _taxDollars = value;
             UpdateText();
         }
+        get => _taxDollars;
     }
 
     private void HandleGameOver(Visitor obj)
     {
+        if (_gameOver) { return;}
         _ohNo?.Invoke();
+        StartCoroutine(GoBackToMainMenu());
+        _gameOver = true;
     }
 
     public void HandleBonkableSpawnEvent(Bonkable bonkable, bool active)
@@ -75,6 +83,7 @@ public class GameManager : MonoBehaviour
     
     public void UnRegisterVisitor()
     {
+        if (!VistorPathManager.Instance) { return;}
         _visitorsLeft++;
         VistorPathManager.Instance.VisitorSpawnFrequency = 4 - Mathf.Log10(_visitorsLeft * 2);
         if (_visitorsLeft - _visitorsSinceLastPath > _visitorsTillNextPath)
@@ -120,5 +129,11 @@ public class GameManager : MonoBehaviour
                 Destroy(GameObject.FindObjectOfType<ParkStaff>());
             }
         }
+    }
+
+    IEnumerator GoBackToMainMenu()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainMenu");
     }
 }

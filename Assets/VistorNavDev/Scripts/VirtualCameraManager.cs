@@ -10,6 +10,8 @@ public class VirtualCameraManager : MonoBehaviour
         if (!Instance) { Instance = this; }
         else {Destroy(gameObject);}
     }
+    
+    void OnDestroy() { if (Instance == this) { Instance = null; } }
 
     public void PanToVisitor(GameObject visitorCam)
     {
