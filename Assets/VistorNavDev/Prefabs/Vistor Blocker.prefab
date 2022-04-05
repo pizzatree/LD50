@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068dbd6fa4634f7b90f39db467aa23d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 1
+  _hp: 20
   _destroyTime: 5
   _grabbable: {fileID: 4154627022535114548}
 --- !u!54 &5173535037402810014
