@@ -6,7 +6,7 @@
 You're a park manager overseeing the pride and joy of your local town: the park!  
 Visitors come from far and wide ready to enjoy the amenities you've procured for them.  
 One of them messed with the goose, now you must prepare for the deuce.  
-Delay the inevitable, your visitors becoming dissatisfied with stepping in goose poo. If you need help and you have the taxes, you can stop by the maintenance shed and purchase some employees to help you out.
+*Delay the inevitable*, your visitors becoming dissatisfied with stepping in goose poo. If you need help and you have the taxes, you can stop by the maintenance shed and purchase some employees to help you out.
 
 ## Controls  
 
